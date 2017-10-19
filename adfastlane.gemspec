@@ -1,9 +1,9 @@
 
 Gem::Specification.new do |s|
   s.name        = 'adfastlane'
-  s.version     = '1.0.1'
+  s.version     = '1.0.2'
   s.executables << 'adfastlane'
-  s.date        = '2017-09-27'
+  s.date        = '2017-10-17'
   s.summary     = "Fastlane wrapper for FABERNOVEL TECHNOLOGIES"
   s.description = "Fastlane wrapper for FABERNOVEL TECHNOLOGIES"
   s.authors     = ["Nicolas Braun"]
@@ -13,5 +13,5 @@ Gem::Specification.new do |s|
   s.homepage    = 'http://rubygems.org/gems/adfastlane'
   s.license     = 'MIT'
   s.add_dependency 'colored', '~> 1.2'
-  s.add_dependency 'fastlane', '~> 2.59'
+  s.add_dependency 'fastlane', '~> 2.62'
 end

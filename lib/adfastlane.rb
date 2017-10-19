@@ -7,9 +7,9 @@ OptionParser.new do |opts|
   opts.on("-v", "--[no-]verbose", "Run verbosely") do |v|
     options[:verbose] = v
   end
-  opts.on("-u", "--update", "Update execute bundle update after fetching the remonte Gemfile") do |v|
-    options[:update] = v
-  end
+  # opts.on("-u", "--update", "Update execute bundle update after fetching the remote Gemfile") do |v|
+  #   options[:update] = v
+  # end
   opts.on("-h", "--help", "Print this help") do
     puts opts
     exit
@@ -20,10 +20,8 @@ end.parse!
 
 puts "Preparing fastlane...".yellow
 abort "Failed".red unless system( "fastlane prepare" )
-if options[:update]
-  puts "Updating dependencies...".yellow if options[:update]
-  abort "Failed".red unless system("BUNDLE_GEMFILE=Gemfile_fastlane bundle update")
-end
+puts "Updating gem dependencies...".yellow
+abort "Failed".red unless system("BUNDLE_GEMFILE=Gemfile_fastlane bundle update")
 cmd = "BUNDLE_GEMFILE=Gemfile_fastlane bundle exec fastlane "
 ARGV.each do |current|
   if current.include? ":" # that's a key/value we need to check if the value contains spaces
