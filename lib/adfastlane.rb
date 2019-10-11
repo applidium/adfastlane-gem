@@ -21,7 +21,7 @@ end.parse!
 puts "Preparing fastlane...".yellow
 abort "Failed".red unless system( "fastlane prepare" )
 puts "Updating gem dependencies...".yellow
-abort "Failed".red unless system("BUNDLE_GEMFILE=Gemfile_fastlane bundle update")
+abort "Failed".red unless system("env -i HOME=$HOME BUNDLE_GEMFILE=Gemfile_fastlane bash -l -c '~/.rbenv/shims/bundle update'")
 cmd = "BUNDLE_GEMFILE=Gemfile_fastlane bundle exec fastlane "
 ARGV.each do |current|
   if current.include? ":" # that's a key/value we need to check if the value contains spaces
